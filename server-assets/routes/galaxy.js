@@ -27,7 +27,15 @@
       res.send('We are working on it....')
     })
     .delete(function(req, res){
-      res.send('We are working on it....')
+      if(req.params.id){
+        Galaxy.deleteById(req.params.id, req.query.include, function(galaxy){
+          return res.send(galaxy)
+        })
+      } else {
+        Galaxy.deleteAll(req.query.include, function(galaxy){
+          return res.send(galaxy)
+        })
+      }
     })
 
 

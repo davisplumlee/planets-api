@@ -58,10 +58,22 @@
     Galaxy.find(id, query).then(cb)
   }
 
+  function deleteById(id, query, cb){
+    query = formatQuery(query);
+    Galaxy.destroy(id, query).then(cb)
+  }
+
+  function deleteAll(query, cb){
+    query = formatQuery(query);
+    Galaxy.destroyAll(query).then(cb)
+  }
+
   module.exports = {
     createGalaxy,
     getAll,
-    getById
+    getById,
+    deleteById,
+    deleteAll
   }
 
 } ());

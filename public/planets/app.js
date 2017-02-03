@@ -1,13 +1,13 @@
 ;(function(){
 
-  angular.module('da-planets', [])
+  angular.module('planet-api', [])
     .component('universe', {
       template: `
       <input ng-model="$ctrl.galaxyName"/>
       <button ng-click="$ctrl.createGalaxy($ctrl.galaxyName)">Create Galaxy</button>
       <button ng-click="$ctrl.loadStuff()">Load Galaxies</button>
         <div ng-repeat="g in $ctrl.galaxies">
-          <p>{{g.name}}</p>
+          <p>{{g.name}}</p><button ng-click="$ctrl.deleteGalaxy(g.id)">Delete</button>
         </div>
       `,
       controller: UniverseController
@@ -18,6 +18,7 @@
       this.loadStuff = function() {
         $http.get('/api/galaxies').then(function(res){
           $ctrl.galaxies = res.data
+          console.log(res)
         })
       }
 
@@ -30,6 +31,15 @@
           $ctrl.galaxyName = '';
         })
       }
+
+      this.deleteGalaxy = function(id){
+        $http.delete('api/galaxies/' + id).then(function(res){
+          $ctrl.loadStuff();
+        })
+      }
+
+
+
     }
 
 }());
