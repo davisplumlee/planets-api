@@ -24,7 +24,9 @@
       })
     })
     .put(function(req, res){
-      res.send('We are working on it....')
+      Galaxy.updateName(req.params.id, req.body.name, function(galaxy){
+        return res.send(galaxy);
+      })
     })
     .delete(function(req, res){
       if(req.params.id){

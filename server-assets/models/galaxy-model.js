@@ -68,12 +68,17 @@
     Galaxy.destroyAll(query).then(cb)
   }
 
+  function updateName(id, newName, cb){
+    Galaxy.update(id, {name: newName}).then(cb)
+  }
+
   module.exports = {
     createGalaxy,
     getAll,
     getById,
     deleteById,
-    deleteAll
+    deleteAll,
+    updateName
   }
 
 } ());
