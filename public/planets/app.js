@@ -2,14 +2,13 @@
 
   angular.module('planet-api', [])
     .component('universe', {
-      template: `
-      <input ng-model="$ctrl.galaxyName"/>
+      template: `<div ng-init="$ctrl.loadStuff()">
+      <input ng-model="$ctrl.galaxyName" placeholder="New Galaxy"/>
       <button ng-click="$ctrl.createGalaxy($ctrl.galaxyName)">Create Galaxy</button>
-      <button ng-click="$ctrl.loadStuff()">Load Galaxies</button>
         <div ng-repeat="g in $ctrl.galaxies">
-          <p>{{g.name}}</p><button ng-click="$ctrl.deleteGalaxy(g.id)">Delete</button><input ng-model="$ctrl.newName"/> <button ng-click="$ctrl.updateName(g.id, $ctrl.newName)">Update Name</button>
+          <p>{{g.name}}</p><button ng-click="$ctrl.deleteGalaxy(g.id)">Delete</button><input placeholder="New Name" ng-model="$ctrl.newName[g.id]"/> <button ng-click="$ctrl.updateName(g.id, $ctrl.newName[g.id])">Update Name</button>
         </div>
-      `,
+      </div>`,
       controller: UniverseController
     })
 
