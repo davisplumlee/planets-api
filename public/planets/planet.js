@@ -1,20 +1,19 @@
 ;(function(){
 
-  angular.module('planet-api', [])
-    .component('universe', {
+  angular.module('planet-api')
+    .component('planet', {
       template: `<div ng-init="$ctrl.loadStuff()">
-      <input ng-model="$ctrl.galaxyName" placeholder="New Galaxy"/>
-      <button ng-click="$ctrl.createGalaxy($ctrl.galaxyName)">Create Galaxy</button>
-        <div ng-repeat="g in $ctrl.galaxies">
-          <p>{{g.name}}</p><button ng-click="$ctrl.deleteGalaxy(g.id)">Delete</button><input placeholder="New Name" ng-model="$ctrl.newName[g.id]"/> <button ng-click="$ctrl.updateName(g.id, $ctrl.newName[g.id])">Update Name</button>
-          <planet galaxyId='{{g.id}}'></planet>
-        </div>
+        Planets coming soon
       </div>`,
-      controller: UniverseController
+      controller: PlanetController,
+      bindings: {
+          galaxyId: '='
+      }
     })
 
-    function UniverseController($http) {
+    function PlanetController($http) {
       let $ctrl = this;
+      
       this.loadStuff = function() {
         $http.get('/api/galaxies')
           .then(function(res){
