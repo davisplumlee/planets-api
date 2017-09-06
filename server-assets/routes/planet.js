@@ -9,17 +9,11 @@
   // TODO: Make the id VVVV delegate to galaxy id and figure out how to transfer through the hasMany/belongsTo
 
 
-  router.route('/:id?')
+  router.route('/:id')
     .get(function(req, res){
-      if(req.params.id){
-        Planet.getById(req.params.id, function(planet){
-          res.send(planet);
-        })
-      } else {
-        Planet.getAll(function(data){
-          res.send(data);
-        });
-      }
+      Planet.getById(req.params.id, function(planet){
+        res.send(planet);
+      })
     })
     .post(function(req, res){
       Planet.createPlanet(req.body.name, req.body.galaxyId, function(planet){
@@ -32,15 +26,6 @@
     .delete(function(req, res){
       res.send('We are working on it....')
     })
-
-
-    // User.findAll({
-    //   where: {
-    //     age: {
-    //       '>': 30
-    //     }
-    //   }
-    // })
 
 
 }());

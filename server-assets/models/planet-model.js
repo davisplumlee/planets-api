@@ -51,6 +51,8 @@
     Planet.findAll().then(cb)
   }
 
+
+  //NEED TO UPDATE WITH GALAXY ID
   function getById(id, cb){
     let options = {
       with: ['moon']
