@@ -6,7 +6,7 @@
         <input ng-model="$ctrl.planetName" placeholder="New Planet"/>
         <button ng-click="$ctrl.createPlanet($ctrl.planetName)">Create Planet</button>
         <div ng-repeat="planet in $ctrl.planets">
-          {{planet.name}}
+          <p>{{planet.name}}</p><button ng-click="$ctrl.deletePlanet(planet.id)">Delete</button>
         </div>
       </div>`,
       controller: PlanetController,
@@ -43,11 +43,11 @@
         })
       }
 
-      // this.deleteGalaxy = function(id){
-      //   $http.delete('api/galaxies/' + id).then(function(res){
-      //     $ctrl.loadStuff();
-      //   })
-      // }
+      this.deletePlanet = function(id){
+        $http.delete('api/planets/' + id).then(function(res){
+          $ctrl.loadStuff();
+        })
+      }
 
       // this.updateName = function(id, name){
       //   if(!name){

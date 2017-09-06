@@ -54,6 +54,9 @@
     Planet.findAll().then(cb)
   }
 
+  function deleteById(id, cb){
+    Planet.destroy(id).then(cb)
+  }
 
   function getById(id, cb){
     let options = {
@@ -76,6 +79,7 @@
     getAll,
     createPlanet,
     getById,
+    deleteById,
     Planet
   }
 

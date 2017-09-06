@@ -22,7 +22,9 @@
       res.send('We are working on it....')
     })
     .delete(function(req, res){
-      res.send('We are working on it....')
+      Planet.deleteById(req.params.id, function(data){
+        return res.send(data)
+      })
     })
 
 
