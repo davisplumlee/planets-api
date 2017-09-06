@@ -5,6 +5,9 @@
     schemator = dataAdapter.schemator,
     DS = dataAdapter.DS;
 
+  let galaxyModel = require('./galaxy-model'),
+    Galaxy = galaxyModel.Galaxy
+
   let Planet = DS.defineResource({
     name: 'planet',
 		endpoint: 'planets',
@@ -52,12 +55,20 @@
   }
 
 
-  //NEED TO UPDATE WITH GALAXY ID
   function getById(id, cb){
     let options = {
-      with: ['moon']
+      //with: ['moon']
     }
-    Planet.find(id, options).then(cb)
+
+    let params = {
+      where: {
+        galaxyId: {
+          '==': id
+        }
+      }
+    }
+
+    Planet.findAll(params, options).then(cb)
   }
 
 

@@ -78,7 +78,8 @@
     getById,
     deleteById,
     deleteAll,
-    updateName
+    updateName,
+    Galaxy
   }
 
 } ());

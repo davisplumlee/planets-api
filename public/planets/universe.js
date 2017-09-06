@@ -7,7 +7,7 @@
       <button ng-click="$ctrl.createGalaxy($ctrl.galaxyName)">Create Galaxy</button>
         <div ng-repeat="g in $ctrl.galaxies">
           <p>{{g.name}}</p><button ng-click="$ctrl.deleteGalaxy(g.id)">Delete</button><input placeholder="New Name" ng-model="$ctrl.newName[g.id]"/> <button ng-click="$ctrl.updateName(g.id, $ctrl.newName[g.id])">Update Name</button>
-          <planet galaxyId='{{g.id}}'></planet>
+          <planet galaxy-id='g.id'></planet>
         </div>
       </div>`,
       controller: UniverseController

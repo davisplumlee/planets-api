@@ -6,13 +6,11 @@
   module.exports.mountPath = '/planets'
   module.exports.router = router;
 
-  // TODO: Make the id VVVV delegate to galaxy id and figure out how to transfer through the hasMany/belongsTo
-
 
   router.route('/:id')
     .get(function(req, res){
-      Planet.getById(req.params.id, function(planet){
-        res.send(planet);
+      Planet.getById(req.params.id, function(planets){
+        res.send(planets);
       })
     })
     .post(function(req, res){
