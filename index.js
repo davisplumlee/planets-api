@@ -10,8 +10,8 @@
   server.use(bodyParser.json())
   server.use(bodyParser.urlencoded({ extended: true }))
 
-  server.use('/', express.static(`${__dirname}/public/planets/`));
-  server.use('/pizza', express.static(`${__dirname}/public/pizzas/`));
+  server.use('/', express.static(`${__dirname}/public/`));
+  //server.use('/pizza', express.static(`${__dirname}/public/pizzas/`));
 
   var whitelist = ['http://localhost:1582', 'http://portal.boisecodeworks.com']; //
   var corsOptions = {

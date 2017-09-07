@@ -1,0 +1,7 @@
+<div ng-init="$ctrl.loadStuff()">
+    <input ng-model="$ctrl.planetName" placeholder="New Planet"/>
+    <button ng-click="$ctrl.createPlanet($ctrl.planetName)">Create Planet</button>
+    <div ng-repeat="planet in $ctrl.planets">
+        <p>{{planet.name}}</p><button ng-click="$ctrl.deletePlanet(planet.id)">Delete</button>
+    </div>
+</div>

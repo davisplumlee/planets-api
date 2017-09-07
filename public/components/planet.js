@@ -2,13 +2,7 @@
 
   angular.module('planet-api')
     .component('planet', {
-      template: `<div ng-init="$ctrl.loadStuff()">
-        <input ng-model="$ctrl.planetName" placeholder="New Planet"/>
-        <button ng-click="$ctrl.createPlanet($ctrl.planetName)">Create Planet</button>
-        <div ng-repeat="planet in $ctrl.planets">
-          <p>{{planet.name}}</p><button ng-click="$ctrl.deletePlanet(planet.id)">Delete</button>
-        </div>
-      </div>`,
+      templateUrl: '../templates/planet.html',
       controller: PlanetController,
       bindings: {
           galaxyId: '<'
@@ -19,9 +13,9 @@
       let $ctrl = this;
       
       this.loadStuff = function() {
-        // if(!this.galaxyId){
-        //   return
-        // }
+        if(!this.galaxyId){
+          return
+        }
         console.log(this.galaxyId)
         $http.get('/api/planets/' + this.galaxyId)
           .then(function(res){
