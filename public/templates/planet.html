@@ -1,7 +1,11 @@
-<div ng-init="$ctrl.loadStuff()">
-    <input ng-model="$ctrl.planetName" placeholder="New Planet"/>
-    <button ng-click="$ctrl.createPlanet($ctrl.planetName)">Create Planet</button>
-    <div ng-repeat="planet in $ctrl.planets">
-        <p>{{planet.name}}</p><button ng-click="$ctrl.deletePlanet(planet.id)">Delete</button>
+<div style="padding-bottom: 20px;" class="container-fluid" ng-init="$ctrl.loadStuff()">
+    <div class="row" style="padding: 40px;">
+        <input class="form-control col-sm-9" ng-model="$ctrl.planetName" placeholder="New Planet"/>
+        <button class="col-sm-3 btn btn-primary" ng-click="$ctrl.createPlanet($ctrl.planetName)">Create Planet</button>
     </div>
+
+    <div class="row" style="padding: 20px;" ng-repeat="planet in $ctrl.planets">
+        <h4 style="padding: 0px 20px;">{{planet.name}}</h4><button class="btn btn-danger" ng-click="$ctrl.deletePlanet(planet.id)">Delete</button>
+    </div>
+    <hr>
 </div>
