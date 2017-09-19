@@ -1,7 +1,18 @@
 <div class="container-fluid" ng-init="$ctrl.loadStuff()">
-        <div class="row">
-            <input class="col-sm-9" type="text" class="form-control" ng-model="$ctrl.galaxyName" placeholder="New Galaxy"/>
-            <button class="btn btn-primary col-sm-3" ng-click="$ctrl.createGalaxy($ctrl.galaxyName)">Create Galaxy</button>
+        <div class="row center">
+            <!-- <input class="col-sm-9" type="text" class="form-control" ng-model="$ctrl.galaxyName" placeholder="New Galaxy"/>
+            <button class="btn btn-primary col-sm-3" ng-click="$ctrl.createGalaxy($ctrl.galaxyName)">Create Galaxy</button> -->
+
+            <div class="col-sm-12" style="padding: 16.0em;">
+                <div class="input-group">
+                  <input type="text" ng-model="$ctrl.galaxyName" class="form-control" placeholder="New Galaxy" aria-label="New Galaxy">
+                  <span class="input-group-btn">
+                    <button class="btn btn-primary" type="button" ng-click="$ctrl.createGalaxy($ctrl.galaxyName)">Create</button>
+                  </span>
+                </div>
+              </div>
+
+
         </div>
         <hr>
         <div ng-repeat="g in $ctrl.galaxies">
@@ -15,5 +26,7 @@
 
             <planet galaxy-id='g.id'></planet>
         </div>
+
+        
         
 </div>
