@@ -2,3 +2,8 @@
     text-align: center;
     align-content: center;
 }
+
+.main {
+    background-image: url('../img/planet-bg.png');
+    background-size: cover;
+}
