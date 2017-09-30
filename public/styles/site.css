@@ -8,3 +8,39 @@
     background-size: cover;
     background-position: center;
 }
+
+.trashHover{
+    font-size: 2.0em;
+    color: #AC0505;
+    -webkit-transition: color 0.3s ease;
+    -moz-transition: color 0.3s ease;
+    transition: color 0.3s ease; 
+}
+
+.trashHover:hover{
+    color: #C45353;
+}
+
+.addHover{
+    font-size: 2.0em;
+    color: #0245FD;
+    -webkit-transition: color 0.3s ease;
+    -moz-transition: color 0.3s ease;
+    transition: color 0.3s ease; 
+}
+
+.addHover:hover{
+    color: #5074DF;
+}
+
+.editHover{
+    font-size: 2.0em;
+    color: #F7E739;
+    -webkit-transition: color 0.3s ease;
+    -moz-transition: color 0.3s ease;
+    transition: color 0.3s ease; 
+}
+
+.editHover:hover{
+    color: #FFEE00;
+}
