@@ -8,6 +8,7 @@
 
     function UniverseController($http) {
       let $ctrl = this;
+
       this.loadStuff = function() {
         $http.get('/api/galaxies')
           .then(function(res){

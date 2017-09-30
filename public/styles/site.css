@@ -6,4 +6,5 @@
 .main {
     background-image: url('../img/planet-bg.png');
     background-size: cover;
+    background-position: center;
 }
