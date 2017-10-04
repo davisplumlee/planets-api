@@ -13,7 +13,7 @@
   server.use('/', express.static(`${__dirname}/public/`));
   //server.use('/pizza', express.static(`${__dirname}/public/pizzas/`));
 
-  var whitelist = ['http://localhost:1582', 'http://portal.boisecodeworks.com']; //
+  var whitelist = ['http://localhost:1582'];
   var corsOptions = {
     origin: function (origin, callback) {
       var originIsWhitelisted = whitelist.indexOf(origin) !== -1;
