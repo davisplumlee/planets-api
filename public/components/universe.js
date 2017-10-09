@@ -1,7 +1,7 @@
 ;(function(){
 
-  angular.module('planet-api', [])
-    .component('universe', {
+  angular.module('planet-api')
+    .component('universeComponent', {
       templateUrl: '../templates/universe.html',
       controller: UniverseController
     })
