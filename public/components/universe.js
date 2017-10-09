@@ -21,16 +21,19 @@
         if(!name){
           return;
         }
-        $http.post('/api/galaxies', {"name": name}).then(function(res){
+        $http.post('/api/galaxies', {
+          "name": name
+        }).then(function(res){
           $ctrl.loadStuff();
           $ctrl.galaxyName = '';
         })
       }
 
       this.deleteGalaxy = function(id){
-        $http.delete('api/galaxies/' + id).then(function(res){
-          $ctrl.loadStuff();
-        })
+        $http.delete('api/galaxies/' + id)
+          .then(function(res){
+            $ctrl.loadStuff();
+          })
       }
 
       this.updateName = function(id, name){
@@ -38,11 +41,14 @@
           return;
         }
         let thisGalaxy;
-        $http.get('api/galaxies/' + id).then(function(res){
-          thisGalaxy = res.data
-          console.log(name)
-        })
-        $http.put('api/galaxies/' + id, {"name": name}).then(function(res){
+        $http.get('api/galaxies/' + id)
+          .then(function(res){
+            thisGalaxy = res.data
+            console.log(name)
+          })
+        $http.put('api/galaxies/' + id, {
+          "name": name
+        }).then(function(res){
           $ctrl.loadStuff();
           console.log(thisGalaxy.name + ' now named ' + res.data.name)
           $ctrl.newName = ''
