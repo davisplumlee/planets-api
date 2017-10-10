@@ -2,7 +2,7 @@
     
         angular.module('planet-api', ['ui.router'])
     
-            .config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
+            .config(function ($stateProvider, $urlRouterProvider) {
     
             $urlRouterProvider.otherwise('/');
     
@@ -16,8 +16,6 @@
                 //     component: 'search'
                 // })
 
-
-            $locationProvider.html5Mode(true);                
         });
     
     }());
